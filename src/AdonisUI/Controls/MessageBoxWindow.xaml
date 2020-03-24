@@ -125,7 +125,11 @@
                                     <ColumnDefinition Width="Auto"/>
                                 </Grid.ColumnDefinitions>
 
-                                <TextBlock Grid.Row="0" Grid.ColumnSpan="2"><Hyperlink ><Run Text="{Binding HelpLinkAboveButtonsView.Caption, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:MessageBoxWindow}}}"/></Hyperlink></TextBlock>
+                                <TextBlock Grid.Row="0" Grid.ColumnSpan="2">
+                                    <Hyperlink Command="{Binding HelpLinkAboveButtonsView.Command, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:MessageBoxWindow}}}">
+                                        <Run Text="{Binding HelpLinkAboveButtonsView.Caption, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:MessageBoxWindow}}}"/>
+                                    </Hyperlink>
+                                </TextBlock>
 
                                 <ItemsControl x:Name="CheckBoxesNextToButtonsView"
                                               ItemsSource="{Binding CheckBoxesNextToButtonsView, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:MessageBoxWindow}}}"
