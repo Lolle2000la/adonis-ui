@@ -125,6 +125,11 @@ namespace AdonisUI.Controls
         /// </summary>
         public ICollectionView CheckBoxesNextToButtonsView { get; private set; }
 
+        /// <summary>
+        /// A <see cref="IMessageBoxHelpLink"/> that represents a
+        /// </summary>
+        public IMessageBoxHelpLink HelpLinkAboveButtonsView { get; private set; }
+
         static MessageBoxWindow()
         {
             DefaultStyleKeyProperty.OverrideMetadata(typeof(MessageBoxWindow), new FrameworkPropertyMetadata(typeof(MessageBoxWindow)));
@@ -324,6 +329,7 @@ namespace AdonisUI.Controls
             {
                 CheckBoxesBelowTextView = null;
                 CheckBoxesNextToButtonsView = null;
+                HelpLinkAboveButtonsView = null;
                 return;
             }
 
@@ -332,6 +338,8 @@ namespace AdonisUI.Controls
 
             CheckBoxesNextToButtonsView = new CollectionViewSource { Source = ViewModel.CheckBoxes }.View;
             CheckBoxesNextToButtonsView.Filter = checkBox => ((IMessageBoxCheckBoxModel)checkBox).Placement == MessageBoxCheckBoxPlacement.NextToButtons;
+
+            HelpLinkAboveButtonsView = ViewModel.HelpLink;
         }
 
         private void OnClosing(object sender, CancelEventArgs e)

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows.Input;
 
 namespace AdonisUI.Controls
 {
@@ -17,5 +18,10 @@ namespace AdonisUI.Controls
         /// </summary>
         /// 
         Action Callback { get; }
+
+        /// <summary>
+        /// A <see cref="ICommand"/> that will be bound to a help link on a message box.
+        /// </summary>
+        ICommand Command { get; }
     }
 }

@@ -1,9 +1,6 @@
 ﻿using AdonisUI.ViewModels;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace AdonisUI.Controls
 {
@@ -31,10 +28,15 @@ namespace AdonisUI.Controls
             private set => SetProperty(ref _callback, value);
         }
 
+        /// <inheritdoc/>
+        public ICommand Command { get; }
+
         private MessageBoxHelpLink(string caption, Action callback) 
         {
             Caption = caption ?? Caption;
-            Callback = callback;
+            Callback = callback ?? throw new ArgumentNullException(nameof(callback));
+
+            Command = new HelpLinkCommand(callback);
         }
 
         /// <summary>

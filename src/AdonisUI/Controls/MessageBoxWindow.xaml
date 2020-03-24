@@ -115,15 +115,23 @@
                                 Style="{Binding ButtonContainerStyle, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:MessageBoxWindow}}}">
 
                             <Grid Margin="30, 12, 6, 12">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                </Grid.RowDefinitions>
+                                
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="Auto"/>
                                 </Grid.ColumnDefinitions>
 
+                                <TextBlock Grid.Row="0" Grid.ColumnSpan="2"><Hyperlink ><Run Text="{Binding HelpLinkAboveButtonsView.Caption, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:MessageBoxWindow}}}"/></Hyperlink></TextBlock>
+
                                 <ItemsControl x:Name="CheckBoxesNextToButtonsView"
                                               ItemsSource="{Binding CheckBoxesNextToButtonsView, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:MessageBoxWindow}}}"
                                               VerticalAlignment="Center"
-                                              Focusable="False">
+                                              Focusable="False"
+                                              Grid.Row="1">
                                     <ItemsControl.ItemTemplate>
                                         <DataTemplate>
                                             <CheckBox IsChecked="{Binding IsChecked}"
@@ -142,6 +150,7 @@
                                 </ItemsControl>
 
                                 <ItemsControl Grid.Column="1"
+                                              Grid.Row="1"
                                               ItemsSource="{Binding Buttons}"
                                               VerticalAlignment="Center"
                                               Focusable="False">
