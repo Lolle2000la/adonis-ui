@@ -30,5 +30,26 @@ namespace AdonisUI.Controls
             get => _callback;
             private set => SetProperty(ref _callback, value);
         }
+
+        private MessageBoxHelpLink(string caption, Action callback) 
+        {
+            Caption = caption ?? Caption;
+            Callback = callback;
+        }
+
+        /// <summary>
+        /// Creates a new instance of <see cref="MessageBoxHelpLink"/> with the default caption "Learn more". Can be used to add and configure a help link on a message box.
+        /// </summary>
+        /// <param name="callback">Specifies a callback that should be called when the help link is called</param>
+        /// <returns>A <see cref="MessageBoxHelpLink"/> that when assigned to a <see cref="MessageBoxModel"/> adds a help link.</returns>
+        public MessageBoxHelpLink Create(Action callback) => new MessageBoxHelpLink(null, callback);
+
+        /// <summary>
+        /// Creates a new instance of <see cref="MessageBoxHelpLink"/>. Can be used to add and configure a help link on a message box.
+        /// </summary>
+        /// <param name="caption">Specifies the caption that the help link should have.</param>
+        /// <param name="callback">Specifies a callback that should be called when the help link is called</param>
+        /// <returns>A <see cref="MessageBoxHelpLink"/> that when assigned to a <see cref="MessageBoxModel"/> adds a help link.</returns>
+        public MessageBoxHelpLink Create(string caption, Action callback) => new MessageBoxHelpLink(caption, callback);
     }
 }
