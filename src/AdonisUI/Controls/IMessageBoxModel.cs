@@ -22,6 +22,11 @@ namespace AdonisUI.Controls
         string Caption { get; }
 
         /// <summary>
+        /// A <see cref="IMessageBoxHelpLink"/> that specifies an help link to display (e.g. "Learn more")
+        /// </summary>
+        IMessageBoxHelpLink HelpLink { get; }
+
+        /// <summary>
         /// A collection of <see cref="IMessageBoxButtonModel"/> that specifies which buttons to display.
         /// </summary>
         IEnumerable<IMessageBoxButtonModel> Buttons { get; }
