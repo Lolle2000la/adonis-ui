@@ -34,6 +34,15 @@ namespace AdonisUI.Controls
             set => SetProperty(ref _caption, value);
         }
 
+        private IMessageBoxHelpLink _helpLink;
+
+        /// <inheritdoc/>
+        public IMessageBoxHelpLink HelpLink
+        {
+            get => _helpLink;
+            set => SetProperty(ref _helpLink, value);
+        }
+
         private IEnumerable<IMessageBoxButtonModel> _buttons = new List<IMessageBoxButtonModel>();
 
         /// <inheritdoc/>
